@@ -2,6 +2,8 @@ import React, { useState, useMemo } from "react";
 import { createEditor } from "slate";
 import { Slate, Editable, withReact } from "slate-react";
 import { withHistory } from "slate-history";
+import { useDispatch } from "react-redux";
+import { editEntity } from "../../redux/editorsSlice";
 
 // const initialValue = [
 //   {
@@ -13,16 +15,16 @@ import { withHistory } from "slate-history";
 // ];
 
 export const PlainTextEditor = ({
-  value = [],
+  entityData = [],
   placeholderText = "Enter some plain text...",
 }) => {
-  const [innerValue, setInnerValue] = useState(value);
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
+  const dispatch = useDispatch();
   return (
     <Slate
       editor={editor}
-      value={innerValue}
-      onChange={(value) => setInnerValue(value)}
+      value={entityData.value}
+      onChange={(value) => dispatch(editEntity({ id: entityData.id, value }))}
     >
       <Editable placeholder={placeholderText} />
     </Slate>
