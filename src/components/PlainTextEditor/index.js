@@ -12,7 +12,10 @@ import { withHistory } from "slate-history";
 //   },
 // ];
 
-export const PlainTextEditor = ({ value = [] }) => {
+export const PlainTextEditor = ({
+  value = [],
+  placeholderText = "Enter some plain text...",
+}) => {
   const [innerValue, setInnerValue] = useState(value);
   const editor = useMemo(() => withHistory(withReact(createEditor())), []);
   return (
@@ -21,7 +24,7 @@ export const PlainTextEditor = ({ value = [] }) => {
       value={innerValue}
       onChange={(value) => setInnerValue(value)}
     >
-      <Editable placeholder="Enter some plain text..." />
+      <Editable placeholder={placeholderText} />
     </Slate>
   );
 };
