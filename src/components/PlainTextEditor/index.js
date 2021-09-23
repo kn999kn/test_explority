@@ -5,15 +5,6 @@ import { withHistory } from "slate-history";
 import { useDispatch } from "react-redux";
 import { editEntity } from "../../redux/editorsSlice";
 
-// const initialValue = [
-//   {
-//     type: "paragraph",
-//     children: [
-//       { text: "This is editable plain text, just like a <textarea>!" },
-//     ],
-//   },
-// ];
-
 export const PlainTextEditor = ({
   entityData = [],
   placeholderText = "Enter some plain text...",

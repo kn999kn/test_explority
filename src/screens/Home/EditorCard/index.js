@@ -1,12 +1,44 @@
-import React, { memo } from "react";
+import React, { memo, forwardRef } from "react";
+import { useSelector } from "react-redux";
 import { Card } from "../../../components/Card";
 import { PlainTextEditor } from "../../../components/PlainTextEditor";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
-const _EditorCard = ({ entityData }) => {
+const grid = 8;
+const getItemStyle = (isDragging, draggableStyle, isHorizontal) => ({
+  userSelect: "none",
+  padding: grid * 2,
+  margin: isHorizontal ? `0 0 ${grid}px 0` : `0 ${grid}px 0 0`,
+  background: isDragging ? "lightgreen" : "white",
+  minWidth: 300,
+  maxWidth: 300,
+  ...draggableStyle,
+});
+
+const _EditorCard = ({ entityData, index }) => {
+  const { isHorizontal } = useSelector((state) => state.viewType);
   return (
-    <Card>
-      <PlainTextEditor entityData={entityData} />
-    </Card>
+    <Draggable key={entityData.id} draggableId={entityData.id} index={index}>
+      {(provided, snapshot) => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          style={{
+            ...getItemStyle(
+              snapshot.isDragging,
+              provided.draggableProps.style,
+              isHorizontal
+            ),
+          }}
+        >
+          <Card>
+            <PlainTextEditor entityData={entityData} />
+          </Card>
+        </div>
+      )}
+    </Draggable>
   );
 };
+
 export const EditorCard = memo(_EditorCard);
