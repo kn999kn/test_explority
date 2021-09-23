@@ -1,11 +1,12 @@
-import React from "react";
+import React, { memo } from "react";
 import { Card } from "../../../components/Card";
 import { PlainTextEditor } from "../../../components/PlainTextEditor";
 
-export const EditorCard = ({ entityData }) => {
+const _EditorCard = ({ entityData }) => {
   return (
     <Card>
       <PlainTextEditor entityData={entityData} />
     </Card>
   );
 };
+export const EditorCard = memo(_EditorCard);
