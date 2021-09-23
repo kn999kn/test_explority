@@ -12,6 +12,8 @@ const getItemStyle = (isDragging, draggableStyle, isHorizontal) => ({
   background: isDragging ? "lightgreen" : "white",
   minWidth: 300,
   maxWidth: 300,
+  border: "1px solid rgb(216 216 216)",
+  borderRadius: "10px",
   ...draggableStyle,
 });
 

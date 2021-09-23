@@ -5,8 +5,8 @@ import Box from "@mui/material/Box";
 
 export const Card = ({ children }) => {
   return (
-    <CardMaterial>
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <CardMaterial variant="outlined">
+      <Box sx={{ display: "flex", flexDirection: "column", boxShadow: "none" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>{children} </CardContent>
       </Box>
     </CardMaterial>

@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import Box from "@mui/material/Box";
 import { EditorCard } from "../Home/EditorCard";
 import { List } from "../../components/List";
 import { AddCardButton } from "./AddCardButton";
@@ -26,8 +27,10 @@ export const Home = () => {
 
   return (
     <>
-      <AddCardButton />
-      <ChangeViewButton />
+      <Box sx={{ margin: "1rem 0" }}>
+        <AddCardButton />
+        <ChangeViewButton />
+      </Box>
       <DragDropContext onDragEnd={onDragEnd}>
         <List
           items={editors}

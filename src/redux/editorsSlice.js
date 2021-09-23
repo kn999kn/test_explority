@@ -49,7 +49,6 @@ export const editorsSlice = createSlice({
         id: action.payload.id,
         value: [
           {
-            // type: "paragraph",
             children: [{ text: "" }],
           },
         ],
