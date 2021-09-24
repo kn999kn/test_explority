@@ -5,7 +5,7 @@ import { PlainTextEditor } from "../../../components/PlainTextEditor";
 import { Draggable } from "react-beautiful-dnd";
 
 const GRID = 8;
-const CARD_DRAGGING_COLOR = "lightgreen";
+const CARD_DRAGGING_COLOR = "#1976d2";
 const CARD_BACKGROUND_COLOR = "white";
 
 const getItemStyle = (isDragging, draggableStyle, isVertical) => ({
