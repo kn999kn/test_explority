@@ -6,6 +6,9 @@ const GRID = 8;
 const DRAGGING_OVER_COLOR = "#def5fd";
 const BACKGROUND_COLOR = "#f3f3f3";
 
+/** Gets droppable area styles depending on draggable element position
+ *  and area direction (vertical | horizontal)
+ */
 const getListStyle = (isDraggingOver, isVertical) => ({
   background: isDraggingOver ? DRAGGING_OVER_COLOR : BACKGROUND_COLOR,
   display: isVertical ? "block" : "flex",

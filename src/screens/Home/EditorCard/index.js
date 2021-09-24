@@ -8,6 +8,9 @@ const GRID = 8;
 const CARD_DRAGGING_COLOR = "#1976d2";
 const CARD_BACKGROUND_COLOR = "white";
 
+/** Gets style for draggable item depending on item drag state
+ * and droppable aria direction (vertical | horizontal)
+ */
 const getItemStyle = (isDragging, draggableStyle, isVertical) => ({
   userSelect: "none",
   padding: GRID * 2,
