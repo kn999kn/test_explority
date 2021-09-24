@@ -1,16 +1,19 @@
-import React, { memo, forwardRef } from "react";
+import React, { memo } from "react";
 import { useSelector } from "react-redux";
 import { Card } from "../../../components/Card";
 import { PlainTextEditor } from "../../../components/PlainTextEditor";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
+import { Draggable } from "react-beautiful-dnd";
 
-const grid = 8;
+const GRID = 8;
+const CARD_DRAGGING_COLOR = "lightgreen";
+const CARD_BACKGROUND_COLOR = "white";
+
 const getItemStyle = (isDragging, draggableStyle, isHorizontal) => ({
   userSelect: "none",
-  padding: grid * 2,
-  margin: isHorizontal ? `0 0 ${grid}px 0` : `0 ${grid}px 0 0`,
-  background: isDragging ? "lightgreen" : "white",
-  minWidth: 300,
+  padding: GRID * 2,
+  margin: isHorizontal ? `0 0 ${GRID}px 0` : `0 ${GRID}px 0 0`,
+  background: isDragging ? CARD_DRAGGING_COLOR : CARD_BACKGROUND_COLOR,
+  minWidth: 200,
   maxWidth: 300,
   border: "1px solid rgb(216 216 216)",
   borderRadius: "10px",

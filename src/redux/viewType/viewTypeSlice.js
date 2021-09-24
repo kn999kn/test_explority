@@ -7,11 +7,11 @@ export const viewTypeSlice = createSlice({
   },
   reducers: {
     toggleViewType: (state) => {
-      state.isHorizontal = !state.isHorizontal;
+      const newViewType = !state.isHorizontal;
+      state.isHorizontal = newViewType;
     },
   },
 });
 
-//Action creators are generated for each case reducer functionexport
 export const { toggleViewType } = viewTypeSlice.actions;
 export default viewTypeSlice.reducer;
