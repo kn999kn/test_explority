@@ -6,7 +6,7 @@ import { addEntity } from "../../../redux/editors/editorsSlice";
 
 const styles = {
   button: {
-    fontSize: "1.5rem",
+    fontSize: "1.2rem",
     margin: "0 1rem",
   },
 };
@@ -19,7 +19,12 @@ export const AddCardButton = ({ title = "+" }) => {
   };
 
   return (
-    <Button sx={styles.button} variant="contained" onClick={handleClick}>
+    <Button
+      sx={styles.button}
+      variant="contained"
+      size="small"
+      onClick={handleClick}
+    >
       {title}
     </Button>
   );
