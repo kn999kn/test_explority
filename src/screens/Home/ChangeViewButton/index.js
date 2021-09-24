@@ -11,8 +11,8 @@ export const ChangeViewButton = ({ title }) => {
   const dispatch = useDispatch();
 
   const initialTitle = isHorizontal
-    ? TO_VERTICAL_VIEW_TEXT
-    : TO_HORIZONTAL_VIEW_TEXT;
+    ? TO_HORIZONTAL_VIEW_TEXT
+    : TO_VERTICAL_VIEW_TEXT;
 
   const handleClick = () => {
     dispatch(toggleViewType());
@@ -20,7 +20,7 @@ export const ChangeViewButton = ({ title }) => {
 
   return (
     <Button onClick={handleClick}>
-      {(title || initialTitle) + isHorizontal}
+      {(title || initialTitle) + "----- is horizontal:" + isHorizontal}
     </Button>
   );
 };
