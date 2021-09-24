@@ -16,6 +16,7 @@ const getListStyle = (isDraggingOver, isVertical) => ({
   overflow: isVertical && "auto",
   width: isVertical ? 340 : "auto",
 });
+//This project uses inline styles to simplify the example
 
 export const List = ({ items, renderItem }) => {
   const { isVertical } = useSelector((state) => state.viewType);
