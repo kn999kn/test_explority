@@ -8,10 +8,10 @@ const GRID = 8;
 const CARD_DRAGGING_COLOR = "lightgreen";
 const CARD_BACKGROUND_COLOR = "white";
 
-const getItemStyle = (isDragging, draggableStyle, isHorizontal) => ({
+const getItemStyle = (isDragging, draggableStyle, isVertical) => ({
   userSelect: "none",
   padding: GRID * 2,
-  margin: isHorizontal ? `0 0 ${GRID}px 0` : `0 ${GRID}px 0 0`,
+  margin: isVertical ? `0 0 ${GRID}px 0` : `0 ${GRID}px 0 0`,
   background: isDragging ? CARD_DRAGGING_COLOR : CARD_BACKGROUND_COLOR,
   minWidth: 200,
   maxWidth: 300,
@@ -22,7 +22,7 @@ const getItemStyle = (isDragging, draggableStyle, isHorizontal) => ({
 });
 
 const _EditorCard = ({ entityData, index }) => {
-  const { isHorizontal } = useSelector((state) => state.viewType);
+  const { isVertical } = useSelector((state) => state.viewType);
   return (
     <Draggable key={entityData.id} draggableId={entityData.id} index={index}>
       {(provided, snapshot) => (
@@ -34,7 +34,7 @@ const _EditorCard = ({ entityData, index }) => {
             ...getItemStyle(
               snapshot.isDragging,
               provided.draggableProps.style,
-              isHorizontal
+              isVertical
             ),
           }}
         >

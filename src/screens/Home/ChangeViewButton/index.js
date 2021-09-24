@@ -7,10 +7,10 @@ const TO_VERTICAL_VIEW_TEXT = "Swich to vertical view";
 const TO_HORIZONTAL_VIEW_TEXT = "Switch to horizontal view";
 
 export const ChangeViewButton = ({ title }) => {
-  const { isHorizontal } = useSelector((state) => state.viewType);
+  const { isVertical } = useSelector((state) => state.viewType);
   const dispatch = useDispatch();
 
-  const initialTitle = isHorizontal
+  const initialTitle = isVertical
     ? TO_HORIZONTAL_VIEW_TEXT
     : TO_VERTICAL_VIEW_TEXT;
 
@@ -18,9 +18,5 @@ export const ChangeViewButton = ({ title }) => {
     dispatch(toggleViewType());
   };
 
-  return (
-    <Button onClick={handleClick}>
-      {(title || initialTitle) + "----- is horizontal:" + isHorizontal}
-    </Button>
-  );
+  return <Button onClick={handleClick}>{title || initialTitle}</Button>;
 };

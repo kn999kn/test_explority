@@ -3,12 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const viewTypeSlice = createSlice({
   name: "viewType",
   initialState: {
-    isHorizontal: false,
+    isVertical: false,
   },
   reducers: {
     toggleViewType: (state) => {
-      const newViewType = !state.isHorizontal;
-      state.isHorizontal = newViewType;
+      state.isVertical = !state.isVertical;
     },
   },
 });
